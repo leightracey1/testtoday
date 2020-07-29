@@ -1,0 +1,184 @@
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+
+<body>
+    <h1>Adopt an animal today!</h1>
+    <div class="row">
+        <div class="col-lg-12">
+            <form id="animal-form">
+                <label for="animal-input">Search for an animal</label>
+                <input type="text" id="animal-input">
+                <input class="add-animal NJ" type="submit" value="NJ">
+                <input class="add-animal NY" type="submit" value="NY">
+                <input class="add-animal CT" type="submit" value="CT">
+                <input class="add-animal PA" type="submit" value="PA">
+            </form>
+        </div>
+    </div>
+
+    <div class="adopt-animals">
+    </div>
+    <script>
+        const animals = [
+            {
+                species: "dog",
+                breed: 'Golden Retriever',
+                name: "Sam",
+                image: "https://tse1.mm.bing.net/th?id=OIP.4Q9awWXNLszmBKaoBil1PAHaHl&pid=Api&P=0&w=300&h=300",
+                state: "NJ"
+            },
+            {
+                species: "dog",
+                breed: 'Golden Retriever',
+                name: "Lucus",
+                image: "https://tse1.mm.bing.net/th?id=OIP.4Q9awWXNLszmBKaoBil1PAHaHl&pid=Api&P=0&w=300&h=300",
+                state: "PA"
+            },
+            {
+                species: "dog",
+                breed: 'Corgi',
+                name: "Twinkie",
+                image: "https://tse4.mm.bing.net/th?id=OIP.2Uh5m5i-MmhSfAJjN2fiuAHaE8&pid=Api&P=0&w=240&h=161",
+                state: "NJ"
+            },
+            {
+                species: "dog",
+                breed: 'Shih tzu',
+                name: "Pepper",
+                image: "https://tse3.mm.bing.net/th?id=OIP._GA00GOckN1THTJWVUcqSAHaF7&pid=Api&P=0&w=196&h=157",
+                state: "NY"
+            },
+            {
+                species: "cat",
+                breed: "Tabby",
+                name: "whiskers",
+                image: "https://tse3.mm.bing.net/th?id=OIP.yxDOjLa7A45LrYntI8k9HwHaE7&pid=Api&P=0&w=228&h=153",
+                state: "NY"
+            },
+            {
+                species: "cat",
+                breed: "Siamese",
+                name: "princess",
+                image: "https://tse2.mm.bing.net/th?id=OIP.1gS03aQItpkA0TRS-MzD5wHaEK&pid=Api&P=0&w=273&h=154",
+                state: "NJ"
+            },
+            {
+                species: "cat",
+                breed: "Siamese",
+                name: "Laya",
+                image: "https://tse3.mm.bing.net/th?id=OIP.NDjTlvSMb5Y8I61b0-ESawHaEK&pid=Api&P=0&w=290&h=164",
+                state: "CT"
+            }
+
+        ];
+
+        const chosenAniaml = "dog";
+        const chosenState = "NJ";
+
+        $("#animal-input").val(chosenAniaml); 
+
+        const selectedSpecies = animals.filter(animal => {
+            return (animal.species === chosenAniaml) && (animal.state === chosenState);
+        });
+
+        for (let i = 0; i < selectedSpecies.length; i++) {
+            const animalDiv = $("<div>");
+            const h1Div = $("<h1>").text(selectedSpecies[i].breed);
+            const h2Div = $("<h2>").text(selectedSpecies[i].name);
+            const dogImage = $("<img>").attr("src", selectedSpecies[i].image);
+            animalDiv.css("border", "solid 10px red");
+            const selected = $(".adopt-animals");
+            selected.append(animalDiv).append(h1Div).append(h2Div).append(dogImage);
+        }
+
+
+        $(".NJ").on("click", function (event) {
+            event.preventDefault(event);
+            const selected = $(".adopt-animals");
+            selected.empty();
+            const chosenAniaml = $("#animal-input").val().trim();
+            const chosenState = "NJ";
+            $("#animal-input").val(chosenAniaml);
+            const selectedSpecies = animals.filter(animal => {
+                return (animal.species === chosenAniaml) && (animal.state === chosenState);
+            });
+
+            for (let i = 0; i < selectedSpecies.length; i++) {
+                const animalDiv = $("<div>");
+                const h1Div = $("<h1>").text(selectedSpecies[i].breed);
+                const h2Div = $("<h2>").text(selectedSpecies[i].name);
+                const dogImage = $("<img>").attr("src", selectedSpecies[i].image);
+                animalDiv.css("border", "solid 10px red");
+                selected.append(animalDiv).append(h1Div).append(h2Div).append(dogImage);
+
+            }
+        });
+
+        $(".NY").on("click", function (event) {
+            event.preventDefault(event);
+            const selected = $(".adopt-animals");
+            selected.empty();
+            const chosenAniaml = $("#animal-input").val().trim();
+            const chosenState = "NY";
+            $("#animal-input").val(chosenAniaml);
+            const selectedSpecies = animals.filter(animal => {
+                return (animal.species === chosenAniaml) && (animal.state === chosenState);
+            })
+
+            for (let i = 0; i < selectedSpecies.length; i++) {
+                const animalDiv = $("<div>");
+                const h1Div = $("<h1>").text(selectedSpecies[i].breed);
+                const h2Div = $("<h2>").text(selectedSpecies[i].name);
+                const dogImage = $("<img>").attr("src", selectedSpecies[i].image);
+                animalDiv.css("border", "solid 10px red");
+                selected.append(animalDiv).append(h1Div).append(h2Div).append(dogImage);
+            }
+        })
+
+        $(".CT").on("click", function (event) {
+            event.preventDefault(event);
+            const selected = $(".adopt-animals");
+            selected.empty();
+            const chosenAniaml = $("#animal-input").val().trim();
+            const chosenState = "CT";
+            $("#animal-input").val(chosenAniaml);
+            const selectedSpecies = animals.filter(animal => {
+                return (animal.species === chosenAniaml) && (animal.state === chosenState);
+            })
+
+            for (let i = 0; i < selectedSpecies.length; i++) {
+                const animalDiv = $("<div>");
+                const h1Div = $("<h1>").text(selectedSpecies[i].breed);
+                const h2Div = $("<h2>").text(selectedSpecies[i].name);
+                const dogImage = $("<img>").attr("src", selectedSpecies[i].image);
+                animalDiv.css("border", "solid 10px red");
+                selected.append(animalDiv).append(h1Div).append(h2Div).append(dogImage);
+            }
+        })
+
+        $(".PA").on("click", function (event) {
+            event.preventDefault(event);
+            const selected = $(".adopt-animals");
+            selected.empty();
+            const chosenAniaml = $("#animal-input").val().trim();
+            const chosenState = "PA";
+            $("#animal-input").val(chosenAniaml);
+            const selectedSpecies = animals.filter(animal => {
+                return (animal.species === chosenAniaml) && (animal.state === chosenState);
+            })
+
+            for (let i = 0; i < selectedSpecies.length; i++) {
+                const animalDiv = $("<div>");
+                const h1Div = $("<h1>").text(selectedSpecies[i].breed);
+                const h2Div = $("<h2>").text(selectedSpecies[i].name);
+                const dogImage = $("<img>").attr("src", selectedSpecies[i].image);
+                animalDiv.css("border", "solid 10px red");
+                selected.append(animalDiv).append(h1Div).append(h2Div).append(dogImage);
+            }
+        })
+
+    </script>
+
+</body>
